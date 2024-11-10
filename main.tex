@@ -1,0 +1,57 @@
+\documentclass{aitthesis}
+
+\usepackage{svg}
+\usepackage{amsmath,amssymb}
+\usepackage{multirow}
+\usepackage{graphicx}
+% \usepackage{cite}
+\usepackage{apacite}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{caption}
+
+\usepackage{listings}
+\usepackage{tcolorbox} % For boxed code
+
+\lstset{
+  breaklines=true, % Enable line breaking
+  basicstyle=\footnotesize\ttfamily, % Set font size to footnotesize and use typewriter font
+  lineskip=0.5ex % Fine-tune the line spacing
+}
+
+% Define a custom tcolorbox style for code
+\tcbuselibrary{listingsutf8} % Needed to work with listings
+\tcolorboxenvironment{lstlisting}{colback=gray!5!white, colframe=gray!80!black, boxrule=0.5pt, arc=3pt}
+
+
+
+\bibliographystyle{apacite}
+
+\begin{document}
+    \pagenumbering{arabic}
+    \addtocontents{toc}{~\hfill\textbf{Page}\par} %This adds the word Page on top of the table of content
+    \include{1-cover}
+    \include{2-acknowledgements}
+    \include{3-abstract}
+    \include{4-contents}
+    \include{5-introduction}
+    \include{6-literature}
+    \include{7-methodology}
+    \include{8-conclusion}
+    \include{9-results}
+    \include{10-challenge-future.tex}
+ 
+    \include{declaration}
+    \include{loft}
+    
+    \pagestyle{plain}  
+    
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\bf REFERENCES}
+    \bibliography{references}    
+    \newpage\pagestyle{plain}
+    \include{appendix}
+
+\end{document}

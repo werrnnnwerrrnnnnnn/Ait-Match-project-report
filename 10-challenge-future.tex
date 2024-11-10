@@ -1,0 +1,45 @@
+\setlength{\footskip}{8mm}
+
+\chapter{PROJECT EVALUATION}
+
+\section{Challenges}
+The development and deployment of the AIT Match application encountered several challenges, including:
+
+    \subsection{Google Authentication and SMTP Email:} Integrating Google authentication and configuring SMTP for email notifications presented technical hurdles that required careful attention to security protocols. According to \cite{google_authentication}, as of September 30, 2024, Google will no longer support less secure apps that only use a username and password for authentication, particularly for Google Workspace accounts. This change means that using a simple username and password combination with SMTP to send emails from Gmail may no longer work due to the deprecation of this form of authentication for security reasons. Consequently, I faced significant challenges verifying my sender email for password resets in Devise, as this required adapting to new security measures that complicate the setup process for sending emails.
+    
+    \subsection{Google Drive Integration for Profile Pictures:}
+    Initially, I attempted to use Google Drive links for hosting profile pictures; however, this proved to be impractical due to various restrictions imposed by Google, such as limitations on sharing and CORS (Cross-Origin Resource Sharing) policies, according to \cite{google_drive_restrictions}. Consequently, I shifted to using Imgur for image hosting. Unfortunately, this transition also presented challenges, particularly in a production environment where access is limited to the CSIM server via the CSIM Wi-Fi. This setup effectively blocks Imgur's IP addresses, preventing users from accessing images hosted on Imgur while using the application. As a result, I opted to implement Active Storage for image management, as it provides a more seamless user experience and circumvents these access issues.
+
+    \newpage
+    \subsection{ActiveStorage Performance Issues:} The implementation of ActiveStorage for managing user-uploaded images resulted in slower website performance. According to \cite{rails_active_storage}, this slowdown can be attributed to several factors, including the overhead associated with processing and storing images, which can lead to increased load times and reduced responsiveness of the application. Specifically, when images are uploaded, ActiveStorage needs to create multiple variants for different display requirements, which requires additional processing time and storage space. Moreover, the reliance on external storage services can introduce latency, especially if network conditions are suboptimal. These performance issues necessitated optimizations to ensure a smoother user experience
+
+    \subsection{Performance Issues Due to Excessive Queries}
+    One significant challenge encountered in the AIT Match platform is the slow performance of the website, particularly when handling user queries. The filtering system, which allows users to specify multiple criteria when searching for profiles, results in a large number of database queries. As users request more complex filters, the system performs additional queries to fetch the required data. This can lead to increased load times and reduced responsiveness, negatively impacting the overall user experience.
+    
+    Additionally, when users are setting up their profiles or preferences and need to fill in user information from the dataset in the database, the system also experiences slow performance. Retrieving and populating data from the database for these forms can further exacerbate load times, making the user experience cumbersome. Optimizing these queries and implementing more efficient data retrieval methods will be necessary to enhance the performance of the application.
+
+
+\newpage
+\section{Future Work}
+In anticipation of continued growth and user engagement, several enhancements and new features are proposed to further improve the AIT Match platform:
+
+\subsection{Expansion to Other Universities}
+Plans are underway to broaden the platform's reach by making it available to students from other universities, thereby enhancing the user base and community engagement. Currently, the application is limited to users from the Asian Institute of Technology (AIT), but future developments could extend accessibility to other institutions across Thailand, facilitating a more diverse community of learners.
+
+\subsection{User Ban System}
+Developing a system to ban users instead of deleting their accounts provides a more flexible approach to managing user behavior. Currently, administrators can only delete profiles deemed inappropriate, which is a permanent action. By introducing a ban feature, administrators can temporarily restrict access to the chat function or place a user in a timeout for a designated period, allowing for corrective actions without permanently removing users from the platform.
+
+\subsection{Filter Inappropriate Words in Chat}
+Implementing filters to prevent users from typing inappropriate words in the chat system is essential for maintaining a respectful environment. This feature will actively screen messages to block any offensive language or derogatory terms, ensuring that all users can communicate in a safe and constructive manner.
+
+\subsection{Chat Functionality between Users and Admin}
+Enabling direct communication channels between users and administrators will significantly enhance support and user experience. Currently, users who submit reports have no means to inquire about the status or outcomes of their submissions. Likewise, administrators lack a mechanism to provide updates or feedback on the reports. Implementing a chat feature or comment section for each report will foster open communication, allowing users to seek clarifications and administrators to convey updates effectively.
+
+\subsection{Addition of Events, Blogs, Posts, and Comments}
+Integrating features for users to create and share events, blogs, posts, and comments will promote greater engagement and interaction within the community. This functionality would empower users to contribute to discussions, share experiences, and foster a lively social atmosphere, making the platform not just a dating app but also a hub for community interaction.
+
+\subsection{More Customizable Interests}
+Allowing users to define a wider range of customizable interests will enhance matching accuracy and user satisfaction. At present, users can only select from preset options defined by developers, which may not fully capture their unique preferences. Future iterations should incorporate features that allow users to add and modify their interests, leading to more tailored connections and experiences.
+
+\subsection{Chat with Sending Images and Emojis}
+Currently, the chat functionality is limited to text messaging, which may feel monotonous for users. Future updates could include support for sending images and emojis, making conversations more dynamic and engaging. This enhancement would allow users to express themselves more fully and interact in a fun, creative manner, thereby enriching the overall chat experience.
