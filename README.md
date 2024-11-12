@@ -25,4 +25,4 @@ The **AIT Match** platform aims to help students at AIT build academic and socia
 To compile the LaTeX project and generate the PDF:
 
 1. **Clone this repository:**
-   ``` git clone https://github.com/yourusername/AIT-Match-Project-Report.git ```
+   ``` git clone https://github.com/werrnnnwerrrnnnnnn/Ait-Match-project-report.git ```
