@@ -1,4 +1,5 @@
 # AIT Match Project Report
+**By : Tatiya Seehatrakul st124875**
 
 This repository contains the LaTeX project report for the **AIT Match** platform, a university dating and social networking application for students at the Asian Institute of Technology (AIT). The report documents the system's design, development process, implementation, challenges faced, and future work.
 
