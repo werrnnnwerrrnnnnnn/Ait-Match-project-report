@@ -1,6 +1,6 @@
 % ---------- boiler plate stuff ---------- 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{aitthesis}[2022/05/03 Asian Institute of Technology Thesis Class]
+\ProvidesClass{Ait_Match_project_report}[November, 2024 : AT70.25 Full Stack Application Development Class]
 
 % ---------- inherit the report package to be used as the base ----------
 \LoadClass[12pt]{report}
