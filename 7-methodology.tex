@@ -2,8 +2,22 @@
 \chapter{METHODOLOGY}
 %-----------------------------------------------%
 \section{Planning and Research}
-The requirements for the system were gathered through online research conducted by the author in collaboration with a group of individuals experienced in using dating applications. During this process, the author examined existing dating apps to identify potential areas for improvement, with a particular focus on incorporating academic-based filters for profile searching. The collected data was then analyzed to plan the system's implementation, define its scope and functionalities, and present the design through diagrams, including an ER Diagram to visually represent the structure of all database tables.
+System requirements were gathered through online research and consultations with experienced dating app users. Existing dating apps were analyzed to identify improvement areas, focusing on academic-based profile filters. Findings were used to define the system’s scope and functionalities, and design diagrams, including an ER Diagram, were created to illustrate database structure.
+
+\subsection{Project Timeline}
+The project timeline for AIT Match was organized in a Gantt chart, outlining development phases and associated tasks. The chart provides an overview of the project’s progress, from planning and design to development and evaluation. Each major phase was divided into tasks for better tracking and management.
+
+The Gantt chart below shows the task schedule, duration, and dependencies, serving as a visual guide to ensure timely completion of each phase.
+    
+    \begin{figure}[H]
+        \centering
+        \captionsetup{justification=centering, singlelinecheck=false, labelsep=space}
+        \includegraphics[width=\textwidth]{figures/project-timeline.png} % Adjust the path to match your file location
+        \caption{Project Timeline for AIT Match Development}
+        \label{fig:project_timeline}
+    \end{figure}
 %-----------------------------------------------%
+\newpage
 \section{System Design}
     \subsection{Back-End Architecture Design}
     The architecture was designed for a web-based platform optimized for laptops and computers, with the code written once but capable of running across all operating systems in web browsers. A Multi-Page Architecture (MPA) was implemented to separate each page and function, allowing for easier development and maintenance of different components independently. This architecture is ideal for navigating between different pages, enhancing the user experience by providing a seamless and organized interface. The back-end architecture design is illustrated in Fig. \ref{fig:mpa}.
@@ -20,7 +34,7 @@ The requirements for the system were gathered through online research conducted 
             \item \textbf{Docker (Docker, Inc., \citeyear{docker2024}):} A containerization platform that allows for consistent development, testing, and deployment environments across different systems. \newline
         \end{enumerate} 
         
-        \begin{figure}[h]
+        \begin{figure}[H]
             \centering
             \captionsetup{justification=centering, singlelinecheck=false, labelsep=space}
             \includegraphics[width=4in]{figures/kicad-mpa-architect.png} % Adjust the image width as needed
@@ -28,7 +42,7 @@ The requirements for the system were gathered through online research conducted 
             \label{fig:mpa}
         \end{figure}
         
-        \begin{figure}[h]
+        \begin{figure}[H]
             \centering
             \captionsetup{justification=centering, singlelinecheck=false, labelsep=space}
             \includegraphics[width=6in]{figures/stack-design.png} % Adjust the image width as needed
@@ -36,7 +50,7 @@ The requirements for the system were gathered through online research conducted 
             \label{fig:stack}
         \end{figure}   
 %-----------------------------------------------%
-    \newpage
+    \clearpage
     \subsection{Back-End Database Design}
         The database efficiently manages all user and admin data, facilitating secure and meaningful connections. The primary entities in the system include:
         
