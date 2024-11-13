@@ -17,7 +17,8 @@ The **AIT Match** platform aims to help students at AIT build academic and socia
 - `7-methodology.tex`: Methodology section
 - `8-results.tex`: Results and findings
 - `9-conclusion.tex`: Conclusion and summary
-- `10-challenge-future.tex`: Challenges and future work
+- `10-project-evaluation.tex`: Challenges and future work
+- `11-user-evaluation.tex`: User feedback and evaluation
 - `references.bib`: Bibliography for the references
 
 ## Getting Started
