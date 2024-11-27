@@ -1618,28 +1618,81 @@ end
             In the administrative interface, the “Profile” section allows the admin to view the complete profile information of each user within the system. This section includes detailed personal information, academic background, interests, and preferences, providing the admin with a comprehensive overview of each user’s profile. While admins can view these profiles to ensure compliance with platform standards, they are restricted from editing any information or interacting with profiles beyond the view access. This structured access for administrators is essential for monitoring and maintaining the integrity of user profiles on the platform. The view is located at \texttt{profiles/show.html.erb}.
             \end{itemize}\bigskip
         
-        \\In summary, the report and user management systems collectively provide a robust framework supporting platform security and effective operation. The report management system enables the administration to mitigate disruptive behaviors, while the user management system ensures adherence to platform standards. Together, these systems protect the user community, enhance security, and maintain application integrity.
+        In summary, the report and user management systems collectively provide a robust framework supporting platform security and effective operation. The report management system enables the administration to mitigate disruptive behaviors, while the user management system ensures adherence to platform standards. Together, these systems protect the user community, enhance security, and maintain application integrity.
     \end{enumerate}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
+%-----------------------------------------------%
+    \newpage
+    \section{Behavior-Driven Development (BDD) Testing with Cucumber}
+    Behavior-Driven Development (BDD) testing was conducted using \citeauthor{cucumber_bdd} to validate critical user workflows, such as the user signup process. The aim was to ensure robust error handling and smooth user experience while adhering to the application's requirements. Below are the tested scenarios and their implementation details:
     
+    \subsection{User Signup Testing}
+    
+    \textbf{Feature: User Sign Up}\\
+    As a new user, I want to sign up for an account so that I can log in and utilize the application effectively. The following scenarios were evaluated to validate the signup functionality:
+
+\begin{itemize}
+    \item \textbf{Scenario: Successful signup with valid email and password}\\
+    Given the user is on the sign-up page, when valid details are submitted, the system should display: \texttt{"Welcome! You have signed up successfully."}
+    
+    \item \textbf{Scenario: Failed signup with invalid email format}\\
+    Given the user enters an invalid email, the system should return: \texttt{"Email must follow AIT format."}
+    
+    \item \textbf{Scenario: Failed signup with invalid password format}\\
+    Given the user enters a password shorter than 6 characters, the system should display: \texttt{"Password is too short (minimum is 6 characters)."}
+    
+    \item \textbf{Scenario: Failed signup with blank password}\\
+    Given the user enters a blank password, the system should display: \texttt{"Password can't be blank."}
+    
+    \item \textbf{Scenario: Failed signup with mismatched password confirmation}\\
+    Given the user enters passwords that do not match, the system should display: \texttt{"Password confirmation doesn't match Password."}
+\end{itemize}
+
+\subsection{Cucumber Code Implementation}
+
+\begin{lstlisting}
+Given("I am on the sign up page") do
+  visit new_user_registration_path
+end
+
+When("I fill in valid sign up details with {string} and {string}") do |email, password|
+  fill_in "e.g., st123456@ait.asia or st123456@ait.ac.th", with: email
+  fill_in "Password", with: password
+  fill_in "Password confirmation", with: password
+end
+
+When("I fill in invalid email format {string} and a valid password") do |email|
+  fill_in "e.g., st123456@ait.asia or st123456@ait.ac.th", with: email
+  fill_in "Password", with: "password"
+end
+
+When("I fill in valid email {string} and an invalid password {string}") do |email, password|
+  fill_in "e.g., st123456@ait.asia or st123456@ait.ac.th", with: email
+  fill_in "Password", with: password
+end
+
+When("I fill in valid email {string} and a blank password") do |email|
+  fill_in "e.g., st123456@ait.asia or st123456@ait.ac.th", with: email
+  fill_in "Password", with: ""
+end
+
+When("I fill in valid email {string}, password {string}, and mismatched confirmation {string}") do |email, password, password_confirmation|
+  fill_in "e.g., st123456@ait.asia or st123456@ait.ac.th", with: email
+  fill_in "Password", with: password
+  fill_in "Password confirmation", with: password_confirmation
+end
+    \end{lstlisting}
+
+    \begin{lstlisting}
+And("I click the {string} button") do |button_text|
+  click_button button_text
+end
+
+Then("I should see the message {string}") do |message|
+  expect(page).to have_content(message)
+end
+
+Then("I should see the error {string}") do |error_message|
+  expect(page).to have_content(error_message)
+end
+    \end{lstlisting}
